@@ -306,6 +306,7 @@ class Navegador:
 		else:
 			infos_consulta[-1] = "Análise manual"
 		with open(self.nome_arquivo, 'a', newline='') as csvfile:
+			infos_consulta = [unidecode.unidecode(info_consulta) for info_consulta in infos_consulta]
 			#csvfile.write(infos_consulta+'\n')
 			escritor_csv = csv.writer(csvfile, delimiter=';')
 			escritor_csv.writerow(infos_consulta)    
